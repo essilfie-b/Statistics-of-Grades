@@ -114,6 +114,7 @@ public class Main {
     }
 
 
+
     // finding the average of a given array
     private static double averageGrade(int[] input) {
         // Initialize total to zero
