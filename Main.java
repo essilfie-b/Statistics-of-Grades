@@ -5,8 +5,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+
+
         // Get length of array(number of students in class)
-        int length = getInput(scanner, "How many students are in the class?");
+        int length = checkDimensionValidity(scanner, "How many students are in the class?");
         int[] scores = new int[length];
 
         // Get user input(grades of students)
@@ -33,6 +35,24 @@ public class Main {
             System.out.println(i + " >  " + print(stats[0] >= i) + "  " + print(stats[1] >= i) + "  " + print(stats[2] >= i) + "  " + print(stats[3] >= i) + "  " + print(stats[4] >= i));
 
         }
+    }
+
+    // Helper function to check if a value is zero or negative
+    private static boolean isAPositiveInteger(int value) {
+        return value > 0;
+    }
+
+    // Helper function to ensure the number of rows and columns are positive.
+    private static int checkDimensionValidity(Scanner scanner, String prompt) {
+        int value;
+        while (true) {
+            value = getInput(scanner, prompt);
+            if (isAPositiveInteger(value))
+                break;
+            else
+                System.out.println("Value must be positive.");
+        }
+        return value;
     }
 
 
